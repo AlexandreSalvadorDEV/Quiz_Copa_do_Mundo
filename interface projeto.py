@@ -93,7 +93,7 @@ while True:
     if window == janela1 and evento == 'Entrar como Usuário':
         janela2 = JanelaUsuario()
         janela1.hide()
-    if window == janela1 and evento == 'Entrae como Administrador':
+    if window == janela1 and evento == 'Entrar como Administrador':
         janela3 = JanelaAdm()
         janela1.hide()
     if window == janela2 and evento == 'Cadastrar novo usuário':

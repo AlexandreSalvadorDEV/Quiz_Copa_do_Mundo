@@ -6,7 +6,7 @@ from Functions import Ranking_Functions
 from Functions import Menu_Quiz
 
 # Main Program
-quiz_book = op.load_workbook('C:\\Users\\asss1\\OneDrive\\Área de Trabalho\\Projeto do jogo\\Quiz_Copa_do_Mundo\\Pasta1.xlsx')
+quiz_book = op.load_workbook('Pasta1.xlsx')
 sheet_quiz = quiz_book['Quiz']
 sheet_cadastro = quiz_book['Cadastro']
 sheet_admin = quiz_book['Admin']
@@ -71,7 +71,7 @@ while len(Perguntas_Disponiveis) != linhas:
             # caucula os pontos ganhos na partida, e após isso adciona no perfil do usuario
             rank = Ranking_Functions.caucular_rank(pontos, perguntas_respondidas)
             jogador_admin[1] += rank
-            print(f'\033[1;32mParabéns!! Vcoê conseguiu \033[4m{rank}\033[m pontos!!\033[m')
+            print(f'\033[1;32mParabéns!! Você conseguiu \033[4m{rank}\033[m pontos!!\033[m')
             # atualiza o ranking da variavel, colocando o usuario na sua posiçao
             Ranking_Functions.alterando_ranking(ranking, jogador_admin)
             # salva esse novo ranking na planilha
