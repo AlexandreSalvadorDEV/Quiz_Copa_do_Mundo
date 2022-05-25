@@ -4,7 +4,6 @@ from time import sleep
 from Functions import mostrar_pergunta_respostas, verificar_resposta
 from Functions import Ranking_Functions
 from Functions import Menu_Quiz
-import openpyxl as op
 
 # Main Program
 quiz_book = op.load_workbook('Pasta1.xlsx')
@@ -22,12 +21,12 @@ ranking = Ranking_Functions.carregando_ranking(sheet_rankings)
 
 jogador_admin = Menu_Quiz.Janela_principal(quiz_book, sheet_cadastro, sheet_admin)
 # Apresentando o quiz
-Menu_Quiz.Menu("QUIZ COPA DO MUNDO", jogador_admin[0])
+Menu_Quiz.Menu("QUIZ COPA DO MUNDO",jogador_admin[0])
 # Determina o maximo de perguntas que existe na planilha
 linhas = sheet_quiz.max_row - 1
 Perguntas_Disponiveis = []
 pontos = perguntas_respondidas = 0
-# Loop onde o jogo so termina se o jogador quiser, ou não tiver mais nenhuma pergunta disponivel
+# Loop onde o jogo so termina se não tiver mais nenhuma pergunta disponivel
 while True:
     len(Perguntas_Disponiveis) != linhas
     # Escolhe uma pergunta "aleatoriamente"
@@ -46,7 +45,7 @@ while True:
                 continue
             else:
                 # Verifica a resposta do usuario é correta ou não
-                verificador = verificar_resposta(sheet_quiz, num_perg, resposta)
+                verificador, resposta_correta = verificar_resposta(sheet_quiz, num_perg, resposta)
                 if verificador > 0:
                     if verificador == 2:
                         pontos += 2
@@ -56,6 +55,7 @@ while True:
                         perguntas_respondidas += 1
                 else:
                     perguntas_respondidas += 1
+                print(f"Resposta correta: {resposta_correta}")
                 break
 
     # Número de pergntas até começar outra partida
@@ -65,7 +65,7 @@ while True:
         sleep(1)  
         print('Registrando jogador...')
         # calcula os pontos ganhos na partida, e após isso adciona no perfil do usuario
-        rank = Ranking_Functions.calcular_rank(pontos, perguntas_respondidas)
+        rank = Ranking_Functions.caucular_rank(pontos, perguntas_respondidas)
         jogador_admin[1] += rank
         print(f'\033[1;32mParabéns!! Você conseguiu \033[4m{rank}\033[m pontos!!\033[m')
         # atualiza o ranking da variavel, colocando o usuario na sua posiçao

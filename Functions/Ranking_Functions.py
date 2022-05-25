@@ -11,15 +11,15 @@ def carregando_ranking(sheet):
     return lista_completa
 
 
-def calcular_rank(resposta_certas, perguntas_respondidas):
-    # Calcula o rank baseado nas perguntas respondidas com as perguntas acertadas
+def caucular_rank(resposta_certas, perguntas_respondidas):
+    # Caucula o rank baseado nas perguntas respondidas com as perguntas acertadas
     rank = (resposta_certas * 100) / perguntas_respondidas
     return round(rank)
 
 
 def alterando_ranking(lista_rank, lista_usuario):
     # Verificando na lista, se o usuario possui um pontuação maior ou igual a de algum outro jogador
-    for r in range(0, 10):
+    for r in range(0, 11):
         # e se for, o usuario irá pegar o seu lugar no ranking
         if lista_rank[r][2] <= lista_usuario[1]:
             lista_usuario.insert(0, lista_rank[r][0])
@@ -30,7 +30,7 @@ def alterando_ranking(lista_rank, lista_usuario):
 
 def organizando_ranking(rank):
     # simplesmente re organiza o ranking com as posiçoes alteradas
-    for r in range(0, 10):
+    for r in range(0, 11):
         rank[r][0] = f'{r + 1}º'
 
 
