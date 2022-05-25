@@ -13,7 +13,10 @@ def Menu(str, usuario):
     print(f'{ciano_negrito}{str:^100}{fim}')
     print(f'{amarelo_negrito}{s}{fim}')
 
-    print(f'\n{amarelo_negrito}{"Agora resposta as perguntas a seguir..."}{fim}')
+    print(f'\n{amarelo_negrito}{"Agora responda as perguntas a seguir..."}{fim}')
+    print(f'\n{amarelo_negrito}{"# As questões do 1 ao 12 são consideradas dificeis"}{fim}')
+    print(f'\n{amarelo_negrito}{"# E asquestões do 13 ao 25 são consideradas fáceis"}{fim}')
+    print(f'\n{amarelo_negrito}{"# As questões dificeis valem 2x á mais que as fáceis"}{fim}')
     print()
 
 
@@ -25,7 +28,7 @@ def Janela_principal(book, sheet_cadastro, sheet_admin):
     while True:
         try:
             forma_login = int(input('Como você desseja continuar??'
-                                    '\n1 - ADMIN'
+                                    '\n1 - ADMIN (Desabilitado)'
                                     '\n2 - JOGADOR'
                                     '\n>> '))
             if 1 > forma_login > 2:

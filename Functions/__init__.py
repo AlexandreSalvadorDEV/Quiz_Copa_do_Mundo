@@ -22,7 +22,7 @@ def mostrar_pergunta_respostas(sheet, limite_perg):
             print('')
 
         else:
-            pass
+            continue
 
 
 def verificar_resposta(sheet, num_perg, rep):
@@ -30,10 +30,10 @@ def verificar_resposta(sheet, num_perg, rep):
     resposta_correta = sheet.cell(row=num_perg + 1, column=4)
     # Determinando a dificuldade da pergunta, sendo ela dificil(2) ou facil(1)
     dificuldade = 0
-    if 2 <= (num_perg + 1) <= 14:
+    if 2 <= (num_perg + 1) <= 10:
         # Pergunta dificil
         dificuldade += 2
-    elif 14 < (num_perg + 1) <= 25:
+    elif 13 < (num_perg + 1) <= 25:
         # Pergunta facil
         dificuldade += 1
 

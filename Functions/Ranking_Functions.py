@@ -1,7 +1,7 @@
 def carregando_ranking(sheet):
     lista_completa = []
     # limita a quantidade de linhas que queremos olhar na planilha
-    for row in sheet.iter_rows(min_row=2, max_row=11):
+    for row in sheet.iter_rows(min_row=2, max_row=12):
         # e as coloca em uma lista para futuras alterações
         rank = []
         for cell in row:
@@ -11,8 +11,8 @@ def carregando_ranking(sheet):
     return lista_completa
 
 
-def caucular_rank(resposta_certas, perguntas_respondidas):
-    # Caucula o rank baseado nas perguntas respondidas com as perguntas acertadas
+def calcular_rank(resposta_certas, perguntas_respondidas):
+    # Calcula o rank baseado nas perguntas respondidas com as perguntas acertadas
     rank = (resposta_certas * 100) / perguntas_respondidas
     return round(rank)
 
@@ -48,7 +48,7 @@ def alterando_ranking_planilha(sheet, lista_rank, book):
 
 def printando_ranking(rank):
     print(F'{"RANKING":>7} - {"NOME":^10} - {"PONTOS":^5}')
-    cont = 1
+    cont = 0
     for r in rank:
         if cont != 10:
             print(f'{r[0]:>7} - {r[1]:^10} - {r[2]:^5}')
