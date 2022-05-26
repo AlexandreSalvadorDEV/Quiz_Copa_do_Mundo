@@ -57,6 +57,7 @@ while True:
                     perguntas_respondidas += 1
                 print(f"Resposta correta: {resposta_correta}")
                 break
+            
 
     # Número de pergntas até começar outra partida
     if len(Perguntas_Disponiveis) % 5 == 0:
